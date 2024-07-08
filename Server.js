@@ -88,6 +88,7 @@ const fileFilter = (req, file, cb) => {
 
 const upload = multer({ storage: storage, fileFilter: fileFilter });
 
+/*
 let db;
 
 if (process.env.JAWSDB_URL) {
@@ -102,7 +103,16 @@ if (process.env.JAWSDB_URL) {
         database: 'garage' // remplacez par le nom de votre base de données
         // Paramètres de connexion MySQL
     });
-}
+}*/
+
+const db = mysql.createConnection({
+    host: 'pro.freedb.tech ',
+    user: 'admin', // remplacez par votre utilisateur
+    password: 'S3DMDjBk8f#eM5u', // ou root1234 remplacez par votre mot de passe
+    database: 'garageStudi', // remplacez par le nom de votre base de données
+    port: 3306
+    // Paramètres de connexion MySQL
+});
 
 //Connectez vous à MySQL
 db.connect(err => {
