@@ -15,7 +15,7 @@ mongoose.connect(process.env.MONGO_URL);
 // On initialise notre serveur
 const app = express();
 
-const port = 3002;
+const port = process.env.PORT || 3002;
 
 app.use(cors());
 app.use(bodyParser.json());
