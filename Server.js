@@ -110,7 +110,7 @@ const db = mysql.createConnection({
     user: 'admin', // remplacez par votre utilisateur
     password: 'S3DMDjBk8f#eM5u', // ou root1234 remplacez par votre mot de passe
     database: 'garageStudi', // remplacez par le nom de votre base de données
-    port: 3306
+    port: 3307
     // Paramètres de connexion MySQL
 });
 
