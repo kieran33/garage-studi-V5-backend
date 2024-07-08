@@ -110,7 +110,7 @@ db.connect(err => {
     console.log('Connecté à la base de données MySQL');
 
     const createEmployesTable = `
-    CREATE TABLE IF NOT EXISTS employes2 (
+    CREATE TABLE IF NOT EXISTS employes (
         id INT AUTO_INCREMENT PRIMARY KEY,
         email VARCHAR(255) NOT NULL,
         password VARCHAR(255) NOT NULL,
@@ -163,7 +163,7 @@ db.connect(err => {
 
     db.query(createEmployesTable, err => {
         if (err) throw err;
-        console.log("Table 'employes2' prête");
+        console.log("Table 'employes' prête");
     });
 
     db.query(createAvisNonVerifTable, err => {
@@ -186,7 +186,7 @@ app.post('/create-employe', (req, res) => {
             return res.status(500).send('Erreur lors du hashage')
         }
 
-        const query = "INSERT INTO employes2 (email, password, role) VALUES (?, ?, ?)";
+        const query = "INSERT INTO employes (email, password, role) VALUES (?, ?, ?)";
 
         db.query(query, [email, hash, role], (err, result) => {
             if (err) {
@@ -200,7 +200,7 @@ app.post('/create-employe', (req, res) => {
 });
 
 app.get("/employes", (req, res) => {
-    const request = "SELECT * FROM employes2"
+    const request = "SELECT * FROM employes"
     db.query(request, (error, result) => {
         res.send(result);
     })
@@ -236,7 +236,7 @@ app.get('/avis-verif', (req, res) => {
 
 app.delete('/employes/remove/:email', (req, res) => {
     const { email } = req.params
-    const request = 'DELETE FROM employes2 WHERE email = ?'
+    const request = 'DELETE FROM employes WHERE email = ?'
     db.query(request, email, (error, result) => {
         if (error) {
             console.log(error)
@@ -289,7 +289,7 @@ app.post('/login', (req, res) => {
     console.log('password request', req.body.password);
     console.log('Je me connecte');
 
-    db.query("SELECT * FROM employes2 WHERE email = ?", [email], async (err, results) => {
+    db.query("SELECT * FROM employes WHERE email = ?", [email], async (err, results) => {
         if (err) {
             console.log('dans le if error')
             res.status(500).send('Erreur dans la recherche du compte employé');
