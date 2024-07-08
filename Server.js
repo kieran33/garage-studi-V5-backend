@@ -106,7 +106,7 @@ if (process.env.JAWSDB_URL) {
 }*/
 
 const db = mysql.createConnection({
-    host: 'pro.freedb.tech ',
+    host: 'pro.freedb.tech',
     user: 'admin', // remplacez par votre utilisateur
     password: 'S3DMDjBk8f#eM5u', // ou root1234 remplacez par votre mot de passe
     database: 'garageStudi', // remplacez par le nom de votre base de données
