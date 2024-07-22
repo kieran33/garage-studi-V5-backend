@@ -106,10 +106,10 @@ if (process.env.JAWSDB_URL) {
 }*/
 
 const db = mysql.createConnection({
-    host: 'pro.freedb.tech',
-    user: 'admin', // remplacez par votre utilisateur
-    password: 'S3DMDjBk8f#eM5u', // ou root1234 remplacez par votre mot de passe
-    database: 'garageStudi', // remplacez par le nom de votre base de données
+    host: 'sql.freedb.tech',
+    user: 'freedb_ADMIN', // remplacez par votre utilisateur
+    password: 'vxTFrFkHx4K!P&B', // ou root1234 remplacez par votre mot de passe
+    database: 'freedb_garageStudi', // remplacez par le nom de votre base de données
     port: 3306
     // Paramètres de connexion MySQL
 });
