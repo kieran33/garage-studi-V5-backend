@@ -60,8 +60,11 @@ app.delete("/supprimer-voitures-vues/:marqueVoiture", (req, res) => {
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
-    res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' http://localhost:3000;");
-    return next();
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; img-src 'self' http://localhost:3000;"
+  );
+  return next();
 });
 
 const uploadDirectory = path.join(__dirname, "uploads");
@@ -71,8 +74,8 @@ const storage = multer.diskStorage({
     cb(null, uploadDirectory);
   },
   filename: function (req, file, cb) {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const cleanedFileName = `image-${uniqueSuffix}.${file.originalname.replace(
+    //const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const cleanedFileName = `${file.originalname.replace(
       /[^a-zA-Z0-9.]/g,
       "_"
     )}`;
