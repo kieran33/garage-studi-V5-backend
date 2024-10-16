@@ -62,7 +62,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 app.use((req, res, next) => {
   res.setHeader(
     "Content-Security-Policy",
-    "default-src 'self'; img-src 'self' http://localhost:3000;"
+    "default-src 'self'; img-src 'self' https://garage-studi-backend.up.railway.app/;"
   );
   return next();
 });
