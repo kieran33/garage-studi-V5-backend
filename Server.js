@@ -57,7 +57,7 @@ app.delete("/supprimer-voitures-vues/:marqueVoiture", (req, res) => {
     .catch((voitures) => res.json(voitures));
 });
 
-app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+app.use("/uploads", express.static("uploads"));
 
 app.use((req, res, next) => {
   res.setHeader(
