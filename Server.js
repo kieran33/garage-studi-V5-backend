@@ -59,10 +59,10 @@ app.delete("/supprimer-voitures-vues/:marqueVoiture", (req, res) => {
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
     res.setHeader("Content-Security-Policy", "default-src 'self'; img-src 'self' http://localhost:3000;");
     return next();
-});*/
+});
 
 const uploadDirectory = path.join(__dirname, "uploads");
 
